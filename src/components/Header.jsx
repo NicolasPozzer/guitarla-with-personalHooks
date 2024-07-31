@@ -1,16 +1,8 @@
-import { useMemo } from "react"
 //import { Fragment } from "react" // Sirve para no repetir muchos div
 
-export default function Header({ cart, removeFromCart, decreaseQuantity, increaseQuantity, vaciarCarrito }) {
 
-    // State Derivado - use memo se ejecuta cada vez que el carrito cambia, por eso va cart a lo ultimo.
-    const estaVacioElCarrito = useMemo( () => cart.length === 0, [cart])// Esto devuelve true o false
-
-    // El array method .reduce toma dos valores, el primero es el acumulado, y el
-    //segundo es el item osea el elemento actual. y el 0 al final, es el valor inicial.
-    const cartTotal = useMemo(() => cart.reduce((total, item) => total + (item.quantity * item.price), 0), [cart])
-    
-
+export default function Header({ cart, removeFromCart, decreaseQuantity,
+     increaseQuantity, vaciarCarrito, estaVacioElCarrito, cartTotal }) {
 
     //El return debe estar siempre, y es el que se va a mostrar en pantalla
     return (
